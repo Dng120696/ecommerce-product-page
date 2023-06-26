@@ -1,0 +1,343 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+  /* ### Primary */
+
+  --Orange: hsl(26, 100%, 55%);
+  --Pale-orange: hsl(25, 100%, 94%);
+
+  /* ### Neutral */
+  --Very-dark-blue: hsl(220, 13%, 13%);
+  --Dark-grayish-blue: hsl(219, 9%, 45%);
+  --Grayish-blue: hsl(220, 14%, 75%);
+  --Light-grayish-blue: hsl(223, 64%, 98%);
+  --White: hsl(0, 0%, 100%);
+  /*  (with 75% opacity for lightbox background) */
+  --Black: hsla(0, 0%, 0%, 0.75);
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  font-family: "Kumbh Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: inherit;
+}
+body {
+  min-height: 100vh;
+
+  font-size: 1.6rem;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex-col {
+  flex-direction: column;
+}
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+.clr-orange {
+  color: var(--Orange);
+}
+h1 {
+  font-size: clamp(2.8rem, 3.2vw, 3.6rem);
+  font-weight: 700;
+}
+p {
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+h1,
+p {
+  margin-bottom: 2rem;
+}
+.close-menu,
+.open-menu,.cart,
+.nav-pic img,.btn,
+.delete-box {
+  cursor: pointer;
+}
+/* HEADER SECTION */
+header {
+  height: 8rem;
+  background-color: var(--White);
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+.nav {
+  width: min(92%, 120rem);
+  margin-inline: auto;
+}
+.nav,
+nav > .flex {
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.nav-pic img {
+  width: clamp(3rem, 3.5vw, 4rem);
+}
+/* MENU TAB */
+.menu-links {
+  position: fixed;
+  width: 70%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background-color: var(--White);
+  padding: 3rem 0 0 2rem;
+  z-index: 15;
+  transition: left 1s ease;
+}
+.close-menu {
+  margin-bottom: 3rem;
+}
+
+.menu-links ul {
+  gap: 2rem;
+  align-items: flex-start;
+}
+.menu-links a {
+  color: var(--Very-dark-blue);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.7vw, 1.8rem);
+}
+.overlay {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+  transition: left 800ms ease 0.2s;
+}
+.show-menu {
+  left: 0;
+  transition: left 1s ease 0.2s;
+}
+.show-overlay {
+  left: 0;
+  transition: left 600ms ease;
+}
+
+/* main section */
+.main-container {
+  width: clamp(30rem, 92%, 100rem);
+  margin-inline: auto;
+  gap: 2rem;
+  position: relative;
+}
+.image-section {
+  position: relative;
+  width: 100%;
+}
+.previous-box,
+.next-box {
+  width: 4rem;
+  height: 4rem;
+}
+.previous--btn,
+.next--btn {
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+  background-color: var(--White);
+  z-index: 3;
+  border-radius: 50%;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+.previous--btn {
+  left: 2rem;
+}
+.next--btn {
+  right: 2rem;
+}
+.image--slide {
+  width: min(100%, 120rem);
+  height: 36rem;
+  margin-inline: auto;
+  position: relative;
+  overflow: hidden;
+  transform: scaleX(1.2);
+}
+.image--slide .slide-img {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  transition: transform 600ms ease;
+}
+.image--slide .slide-img img{
+  
+  height: 100%;
+}
+
+/* CONTENT SECTION */
+.content-section p:first-child {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.content-info {
+  line-height: 1.6;
+  color: var(--Dark-grayish-blue);
+}
+.content-section div.flex {
+  justify-content: space-between;
+}
+.sneaker-price {
+  gap: 1rem;
+}
+.price {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+.discount-price {
+  font-size: 1.4rem;
+  padding: 5px 8px;
+  border-radius: 5px;
+  background-color: var(--Pale-orange);
+}
+.price-off {
+  color: var(--Grayish-blue);
+  text-decoration: line-through;
+}
+.btn {
+  border: none;
+  font-weight: 700;
+}
+.add-to-cart-box .piece-to-purchase {
+  justify-content: space-between;
+  background-color: var(--Light-grayish-blue);
+  width: 100%;
+  padding: 1rem 2rem;
+}
+.piece-to-purchase button {
+  background-color: transparent;
+  font-size: 2.6rem;
+}
+.btn-add-to-cart {
+  color: var(--White);
+  background-color: var(--Orange);
+  width: 100%;
+  border-radius: 5px;
+  padding: 1.5rem 0;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+.btn-add-to-cart::before {
+  content:  url(./images/icon-cart\ copy.svg);
+  padding-right: 1rem;
+}
+/* CART BOX */
+.cart-box{
+  position: relative;
+  z-index: 30;
+}
+.cart-count{
+  position: absolute;
+  top:-5px;
+  right:-5px;
+  color: var(--Light-grayish-blue);
+  background-color: var(--Orange);
+  font-size: 1rem;
+  padding: 0 8px;
+  border-radius: 1rem;
+}
+.cart-container {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255,255,255,.95);
+  z-index: 12;
+  width: clamp(30rem, 95%,50rem);
+  border-radius: 1rem;
+  box-shadow: 0 1rem 10px rgba(0,0,0,0.3);
+  opacity: 0;
+  transition: top 600ms, opacity 600ms;
+  overflow: hidden;
+}
+.show-cart{
+ top: 25rem;
+ opacity: 1;
+ transition: top 600ms,opacity 600ms;;
+}
+.cart-title {
+  padding: 2.5rem;
+  border-bottom: 1px solid hsl(220, 14%, 90%);
+
+}
+.basket-box{
+  height: 25rem;
+  display: grid;
+  place-items: center;
+  overflow: scroll;
+}
+.basket-box::-webkit-scrollbar-track {
+  background-color: rgba(255,255,255,.95);
+}
+.basket-box::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+.basket-empty{
+  margin-bottom: 0;
+  font-weight: 700;
+  color: var(--Dark-grayish-blue);
+  letter-spacing: 1px;
+}
+/* Item Purchase */
+.items-purchase{
+  gap: 2rem;
+  width: 100%;
+  padding:  2.5rem;
+
+}
+.item{
+  width: 100%;
+  justify-content: space-between;
+}
+.item p{
+  color: var(--Dark-grayish-blue);
+  margin-bottom: 0;
+  line-height: 1.6;
+}
+.item-name{
+  display: block;
+}
+.font-bold{
+  color: var(--Very-dark-blue);
+  font-weight: 700;
+}
+.img-item{
+  width: clamp(4.5rem,5vw,5.5rem);
+  border-radius: 5px;
+}
+.btn-checkout{
+  width: 100%;
+  background-color: var(--Orange);
+  color: var(--Light-grayish-blue);
+  letter-spacing: 1px;
+  padding: 2rem 0;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+
+}

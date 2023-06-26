@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="./script.js"></script>
+  <title>Frontend Mentor | E-commerce product page</title>
+
+</head>
+<body>
+    <header>
+      <nav class="flex nav">
+        <div class="nav-left flex">
+          <div class="open-menu">
+            <img src="./images/icon-menu.svg" alt="">
+          </div>
+          <div class="nav-logo">
+            <img src="./images/logo.svg" alt="" class="logo">
+          </div>
+          <div class="menu-links">
+            <div class="close-menu">
+              <img src="./images/icon-close.svg" alt="">
+            </div>
+            <ul class="flex flex-col">
+              <li><a href="">
+                Collections
+              </a></li>
+              <li><a href="">
+                Men
+              </a></li>
+              <li><a href="">
+                Women
+              </a></li>
+              <li><a href="">
+                About
+              </a></li>
+              <li><a href="">
+                Contact
+              </a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="nav-right flex"> 
+            <div class="cart-box " > 
+              <img src="./images/icon-cart.svg" alt="" class="cart">
+              <p class="cart-count"></p>
+            </div>
+            <div class="nav-pic">
+              <img src="./images/image-avatar.png" alt="">
+            </div>
+        </div>
+      </nav>
+    </header>
+    <section class="main-container flex flex-col">
+      <article class="image-section flex">
+          <img src="./images/icon-previous.svg" alt="" class="previous--btn">
+          <img src="./images/icon-next.svg" alt="" class="next--btn">
+        <div class="image--slide flex">
+          <div class="slide-img">
+            <img src="./images/image-product-1.jpg" alt="" data-slide = '1'>
+          </div>
+          <div class="slide-img">
+            <img src="./images/image-product-2.jpg" alt="" data-slide = '2' >
+          </div>
+          <div class="slide-img">
+            <img src="./images/image-product-3.jpg" alt="" data-slide = '3'>
+          </div>
+          <div class="slide-img">
+            <img src="./images/image-product-4.jpg" alt="" data-slide = '4'>
+          </div>
+        </div>
+      </article>
+      <article class="content-section">
+        <p class="clr-orange">
+          Sneaker Company
+        </p>
+        <h1 class="content-title">
+          Fall Limited Edition Sneakers
+        </h1>
+        <p class="content-info">
+          These low-profile sneakers are your perfect casual wear companion. Featuring a 
+          durable rubber outer sole, they’ll withstand everything the weather can offer.
+        </p>
+        <div class="flex">
+          <p class="sneaker-price flex">
+            <span class="price">
+              $125.00
+            </span>
+            <span class="discount-price clr-orange">
+              50%
+            </span>
+          </p>
+          <p class="price-off">
+            $250.00
+          </p>
+        </div>
+        <div class="add-to-cart-box flex flex-col">
+          <p class="piece-to-purchase flex">
+            <button class="btn decrement-btn clr-orange">
+              -
+            </button>
+            <span class="piece-value">
+              0
+            </span>
+            <button class="btn increment-btn clr-orange">
+              +
+            </button>
+          </p>
+          <button class="btn btn-add-to-cart">
+            Add to cart
+          </button>
+        </div>    
+      </article>
+    </section>    
+  <div class="overlay"></div>
+</body>
+</html>
