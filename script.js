@@ -11,15 +11,18 @@ const closeLinks = () => {
   overlay.classList.remove("show-overlay");
   imageSection.classList.remove("active");
 };
+
 openMenu.addEventListener("click", () => {
   menuLinks.classList.add("show-menu");
   overlay.classList.add("show-overlay");
 });
+
 window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && menuLinks.classList.contains("show-menu")) {
     closeLinks();
   }
 });
+
 closeMenu.addEventListener("click", closeLinks);
 overlay.addEventListener("click", closeLinks);
 
@@ -32,6 +35,7 @@ const nextBtn = document.querySelector(".next--btn");
 let currSlide = 0;
 let currentIndexproduct = 0;
 const maxSlide = imgSlide.length - 1;
+
 const goToSlide = (curr) => {
   imgSlide.forEach(
     (img, i) => (img.style.transform = `translateX(${100 * (i - curr)}%)`)
@@ -44,13 +48,17 @@ const nextSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
+  item(currSlide);
 };
+
 const previousSlide = () => {
   currSlide === 0 ? (currSlide = maxSlide) : currSlide--;
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
+  item(currSlide);
 };
+
 nextBtn.addEventListener("click", nextSlide);
 previousBtn.addEventListener("click", previousSlide);
 
@@ -58,7 +66,6 @@ previousBtn.addEventListener("click", previousSlide);
 const decrementBtn = document.querySelector(".decrement-btn");
 const incrementBtn = document.querySelector(".increment-btn");
 const pieceValue = document.querySelector(".piece-value");
-
 let quantity = parseInt(pieceValue.innerHTML);
 
 decrementBtn.addEventListener("click", () => {
@@ -66,6 +73,7 @@ decrementBtn.addEventListener("click", () => {
   quantity--;
   pieceValue.textContent = quantity;
 });
+
 incrementBtn.addEventListener("click", () => {
   quantity++;
   pieceValue.textContent = quantity;
@@ -74,14 +82,14 @@ incrementBtn.addEventListener("click", () => {
 // CART BOX
 const cartBox = document.querySelector(".cart-box");
 const mainContainer = document.querySelector(".main-container");
-
 const cartContainer = document.querySelector(".cart-container");
+
 cartBox.addEventListener("click", () => {
   cartContainer.classList.toggle("show-cart");
 });
 
-let purchaseval = [];
 // BTN CART
+let purchaseval = [];
 const btnCart = document.querySelector(".btn-add-to-cart");
 const basketBox = document.querySelector(".basket-box");
 const cartCount = document.querySelector(".cart-count");
@@ -89,17 +97,20 @@ let total = parseInt(cartCount.textContent);
 
 const addPurchase = (purchase) => {
   basketBox.innerHTML = "";
-  if(purchase.length === 0){
-    basketBox.insertAdjacentHTML('afterbegin',`<p class = 'basket-empty'> Your cart is empty.
-    </p>`);
-  }else{
-
+  if (purchase.length === 0) {
+    basketBox.insertAdjacentHTML(
+      "afterbegin",
+      `<p class = 'basket-empty'> Your cart is empty.
+    </p>`
+    );
+  } else {
     purchase.forEach((item, i) => {
       if (item >= 1) {
-  
-          const html = `<div class = 'items-purchase flex flex-col'>
+        const html = `<div class = 'items-purchase flex flex-col'>
             <div class = 'item flex'>
-              <img src = './images/image-product-${currentIndexproduct + 1}.jpg' class = 'img-item'>
+              <img src = './images/image-product-${
+                currentIndexproduct + 1
+              }.jpg' class = 'img-item'>
               <p>
               <span class = 'item-name'>
               Fall Limited Edition Sneakers
@@ -115,16 +126,14 @@ const addPurchase = (purchase) => {
             </div>
             <button class = 'btn btn-checkout'>Checkout</button>
           </div>`;
-          basketBox.insertAdjacentHTML("afterbegin", html);
-        
+        basketBox.insertAdjacentHTML("afterbegin", html);
       } else {
         return;
       }
-    
-      
     });
   }
 };
+
 btnCart.addEventListener("click", () => {
   if (!quantity) return;
   purchaseval.push(quantity);
@@ -164,6 +173,7 @@ const product = (el) => {
   });
 };
 product(0);
+
 const thumbnails = (el) => {
   imgThumbnails.forEach((thumb) =>
     thumb.classList.remove("img-thumbnails--active")
@@ -171,6 +181,11 @@ const thumbnails = (el) => {
   document
     .querySelector(`.img-thumbnails[data-index='${el}']`)
     .classList.add("img-thumbnails--active");
+};
+
+const item = (curr) => {
+  const itemImage = basketBox.querySelector(".img-item");
+  itemImage.src = `./images/image-product-${curr + 1}.jpg`;
 };
 
 imageClose.addEventListener("click", () => {
@@ -186,10 +201,10 @@ imageProducts.addEventListener("click", function (e) {
     imageSection.classList.add("active");
     overlay.classList.add("show-overlay");
     goToSlide(currentIndexproduct);
-      thumbnails(currentIndexproduct);
-      product(currentIndexproduct);
-    }
-  
+    thumbnails(currentIndexproduct);
+    product(currentIndexproduct);
+    item(currentIndexproduct);
+  }
 });
 
 imageThumbnails.addEventListener("click", function (e) {
@@ -203,5 +218,6 @@ imageThumbnails.addEventListener("click", function (e) {
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
     product(currentIndexproduct);
+    item(currentIndexproduct);
   }
 });
