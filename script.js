@@ -9,12 +9,13 @@ const overlay = document.querySelector(".overlay");
 const closeLinks = () => {
   menuLinks.classList.remove("show-menu");
   overlay.classList.remove("show-overlay");
+  imageSection.classList.remove('active')
 };
 openMenu.addEventListener("click", () => {
   menuLinks.classList.add("show-menu");
   overlay.classList.add("show-overlay");
 });
-document.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", (e) => {
   if (e.key === "Escape" && menuLinks.classList.contains("show-menu")) {
     closeLinks();
   }
@@ -30,7 +31,6 @@ const previousBtn = document.querySelector(".previous--btn");
 const nextBtn = document.querySelector(".next--btn");
 let currSlide = 0;
 const maxSlide = imgSlide.length - 1;
-
 const goToSlide = (curr) => {
   imgSlide.forEach(
     (img, i) => (img.style.transform = `translateX(${100 * (i - curr)}%)`)
@@ -41,10 +41,14 @@ goToSlide(0);
 const nextSlide = () => {
   currSlide === maxSlide ? currSlide = 0 : currSlide++;
   goToSlide(currSlide);
+  product(currSlide)
+  thumbnails(currSlide)
 };
 const previousSlide = () => {
   currSlide === 0 ? currSlide = maxSlide : currSlide--;
   goToSlide(currSlide);
+  product(currSlide)
+  thumbnails(currSlide)
 };
 nextBtn.addEventListener("click", nextSlide);
 previousBtn.addEventListener("click", previousSlide);
@@ -52,7 +56,6 @@ previousBtn.addEventListener("click", previousSlide);
 // PURCHASE SECTION
 const decrementBtn = document.querySelector(".decrement-btn");
 const incrementBtn = document.querySelector(".increment-btn");
-
 const pieceValue = document.querySelector(".piece-value");
 
 let currPieces = parseInt(pieceValue.innerHTML);
@@ -153,6 +156,51 @@ basketBox.addEventListener("click", function (e) {
     this.appendChild(newElement);
     cartCount.innerHTML = '';
 
-   
   }
 });
+
+// DESKTOP VIEW
+const product = (el)=>{
+  imgProducts.forEach((img,i)=>{
+    img.style.transform = `translateX(${100 * (i - el)}%)`
+  })
+}
+const thumbnails = (el)=>{
+  imgThumbnails.forEach(thumb => thumb.classList.remove('img-thumbnails--active'))
+  document.querySelector(`.img-thumbnails[data-index='${el}']`).classList.add('img-thumbnails--active')
+}
+const imageSection = document.querySelector('.image-section')
+//IMAGE PRODUCT
+const imageProducts = document.querySelector('.image-products')
+const imgProducts = document.querySelectorAll('.image-products img')
+const imageClose = document.querySelector('.image-close-menu')
+
+imageClose.addEventListener('click',()=>{
+  overlay.classList.remove('show-overlay')
+  imageSection.classList.remove('active')
+})
+imageProducts.addEventListener('click',function(e){
+  const el = e.target;
+  // console.log(el);
+  if(el.classList.contains('img-product')){
+    const {product} = el.dataset;
+    imageSection.classList.add('active')
+    overlay.classList.add('show-overlay')
+   goToSlide(product)
+  }
+})
+
+product(0)
+// THUMBNAILS
+const imageThumbnails = document.querySelector('.image-thumbnails')
+const imgThumbnails = document.querySelectorAll('.img-thumbnails')
+imageThumbnails.addEventListener('click',function(e){
+  const el = e.target;
+  if(el.classList.contains('img-thumbnails')){
+    const {index} = el.dataset;
+    imgThumbnails.forEach(thumb => thumb.classList.remove('img-thumbnails--active'))
+    el.classList.add('img-thumbnails--active')
+    product(index);
+  }
+})
+
