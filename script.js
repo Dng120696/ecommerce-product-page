@@ -9,7 +9,7 @@ const overlay = document.querySelector(".overlay");
 const closeLinks = () => {
   menuLinks.classList.remove("show-menu");
   overlay.classList.remove("show-overlay");
-  imageSection.classList.remove('active')
+  imageSection.classList.remove("active");
 };
 openMenu.addEventListener("click", () => {
   menuLinks.classList.add("show-menu");
@@ -39,16 +39,16 @@ const goToSlide = (curr) => {
 goToSlide(0);
 
 const nextSlide = () => {
-  currSlide === maxSlide ? currSlide = 0 : currSlide++;
+  currSlide === maxSlide ? (currSlide = 0) : currSlide++;
   goToSlide(currSlide);
-  product(currSlide)
-  thumbnails(currSlide)
+  product(currSlide);
+  thumbnails(currSlide);
 };
 const previousSlide = () => {
-  currSlide === 0 ? currSlide = maxSlide : currSlide--;
+  currSlide === 0 ? (currSlide = maxSlide) : currSlide--;
   goToSlide(currSlide);
-  product(currSlide)
-  thumbnails(currSlide)
+  product(currSlide);
+  thumbnails(currSlide);
 };
 nextBtn.addEventListener("click", nextSlide);
 previousBtn.addEventListener("click", previousSlide);
@@ -101,11 +101,13 @@ const addPurchase = (purchase) => {
   purchase.forEach((item, i) => {
     if (currPieces >= 1) {
       const slideIndex = i % (maxSlide + 1); // Calculate the slide index using modulo operator
-    if (slideIndex <= maxSlide) {
+      if (slideIndex <= maxSlide) {
         document.querySelector(".basket-empty")?.remove();
         const html = `<div class = 'items-purchase flex flex-col'>
           <div class = 'item flex'>
-            <img src = './images/image-product-${slideIndex+1}.jpg' class = 'img-item'>
+            <img src = './images/image-product-${
+              slideIndex + 1
+            }.jpg' class = 'img-item'>
             <p>
             <span class = 'item-name'>
             Fall Limited Edition Sneakers
@@ -123,20 +125,19 @@ const addPurchase = (purchase) => {
         </div>`;
         basketBox.insertAdjacentHTML("afterbegin", html);
       }
-  
     } else {
       return;
     }
   });
 };
-const cartCount = document.querySelector('.cart-count')
+const cartCount = document.querySelector(".cart-count");
 let total = parseInt(cartCount.textContent);
 btnCart.addEventListener("click", () => {
-  if(!currPieces)return;
+  if (!currPieces) return;
   purchaseval.push(currPieces);
   addPurchase(purchaseval);
-  const totalCount = purchaseval.reduce((acc,curr)=> acc + curr);
-  total = parseInt(totalCount) ;
+  const totalCount = purchaseval.reduce((acc, curr) => acc + curr);
+  total = parseInt(totalCount);
   cartCount.textContent = total;
 });
 
@@ -147,60 +148,65 @@ basketBox.addEventListener("click", function (e) {
     cartCount.textContent = total;
     purchaseval.splice(del, 1);
     addPurchase(purchaseval);
-    
   }
 
   if (purchaseval.length === 0) {
     const newElement = document.createElement("p");
     newElement.textContent = "Your cart is empty.";
     this.appendChild(newElement);
-    cartCount.innerHTML = '';
-
+    cartCount.innerHTML = "";
   }
 });
 
 // DESKTOP VIEW
-const product = (el)=>{
-  imgProducts.forEach((img,i)=>{
-    img.style.transform = `translateX(${100 * (i - el)}%)`
-  })
-}
-const thumbnails = (el)=>{
-  imgThumbnails.forEach(thumb => thumb.classList.remove('img-thumbnails--active'))
-  document.querySelector(`.img-thumbnails[data-index='${el}']`).classList.add('img-thumbnails--active')
-}
-const imageSection = document.querySelector('.image-section')
 //IMAGE PRODUCT
-const imageProducts = document.querySelector('.image-products')
-const imgProducts = document.querySelectorAll('.image-products img')
-const imageClose = document.querySelector('.image-close-menu')
+const imageSection = document.querySelector(".image-section");
+const imageProducts = document.querySelector(".image-products");
+const imgProducts = document.querySelectorAll(".image-products img");
+const imageClose = document.querySelector(".image-close-menu");
+// THUMBNAILS
+const imageThumbnails = document.querySelector(".image-thumbnails");
+const imgThumbnails = document.querySelectorAll(".img-thumbnails");
 
-imageClose.addEventListener('click',()=>{
-  overlay.classList.remove('show-overlay')
-  imageSection.classList.remove('active')
-})
-imageProducts.addEventListener('click',function(e){
+const product = (el) => {
+  imgProducts.forEach((img, i) => {
+    img.style.transform = `translateX(${100 * (i - el)}%)`;
+  });
+};
+product(0);
+const thumbnails = (el) => {
+  imgThumbnails.forEach((thumb) =>
+    thumb.classList.remove("img-thumbnails--active")
+  );
+  document
+    .querySelector(`.img-thumbnails[data-index='${el}']`)
+    .classList.add("img-thumbnails--active");
+};
+
+imageClose.addEventListener("click", () => {
+  overlay.classList.remove("show-overlay");
+  imageSection.classList.remove("active");
+});
+
+imageProducts.addEventListener("click", function (e) {
   const el = e.target;
   // console.log(el);
-  if(el.classList.contains('img-product')){
-    const {product} = el.dataset;
-    imageSection.classList.add('active')
-    overlay.classList.add('show-overlay')
-   goToSlide(product)
+  if (el.classList.contains("img-product")) {
+    const { product } = el.dataset;
+    imageSection.classList.add("active");
+    overlay.classList.add("show-overlay");
+    goToSlide(product);
   }
-})
+});
 
-product(0)
-// THUMBNAILS
-const imageThumbnails = document.querySelector('.image-thumbnails')
-const imgThumbnails = document.querySelectorAll('.img-thumbnails')
-imageThumbnails.addEventListener('click',function(e){
+imageThumbnails.addEventListener("click", function (e) {
   const el = e.target;
-  if(el.classList.contains('img-thumbnails')){
-    const {index} = el.dataset;
-    imgThumbnails.forEach(thumb => thumb.classList.remove('img-thumbnails--active'))
-    el.classList.add('img-thumbnails--active')
+  if (el.classList.contains("img-thumbnails")) {
+    const { index } = el.dataset;
+    imgThumbnails.forEach((thumb) =>
+      thumb.classList.remove("img-thumbnails--active")
+    );
+    el.classList.add("img-thumbnails--active");
     product(index);
   }
-})
-
+});
