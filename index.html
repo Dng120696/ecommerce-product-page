@@ -25,19 +25,19 @@
               <img src="./images/icon-close.svg" alt="">
             </div>
             <ul class="flex flex-col">
-              <li><a href="">
+              <li><a href="#">
                 Collections
               </a></li>
-              <li><a href="">
+              <li><a href="#">
                 Men
               </a></li>
-              <li><a href="">
+              <li><a href="#">
                 Women
               </a></li>
-              <li><a href="">
+              <li><a href="#">
                 About
               </a></li>
-              <li><a href="">
+              <li><a href="#">
                 Contact
               </a></li>
             </ul>
@@ -55,37 +55,32 @@
       </nav>
     </header>
     <section class="main-container flex flex-col">
+      <!-- CART CONTAINER -->
+      <div class = 'cart-container'>
+        <h3 class = 'cart-title'>
+        Cart
+        </h3>
+        <div class = 'basket-box'>
+        <p class = 'basket-empty'> Your cart is empty.
+        </p>
+        </div>
+      </div>
+      <!-- DESKTIP IMAGES -->
       <article class="desktop-img-sec flex">
         <div class="image-products flex">
-          <div >
           <img src="./images/image-product-1.jpg" alt="" class="img-product" data-product="0">
-          </div>
-          <div >
             <img src="./images/image-product-2.jpg" alt="" class="img-product" d data-product="1" >
-          </div>
-          <div >
             <img src="./images/image-product-3.jpg" alt=""  class="img-product" d data-product="2">
-          </div>
-          <div >
             <img src="./images/image-product-4.jpg" alt="" class="img-product" d data-product="3" >
-          </div>
         </div>
         <div class="image-thumbnails flex">
-          <div >
             <img src="./images/image-product-1-thumbnail.jpg" alt="" class="img-thumbnails img-thumbnails--active"  data-index="0">
-          </div>
-          <div >
             <img src="./images/image-product-2-thumbnail.jpg" alt="" class="img-thumbnails" data-index="1">
-          </div>
-          <div >
             <img src="./images/image-product-3-thumbnail.jpg" alt="" class="img-thumbnails" data-index="2">
-          </div>
-          <div >
-            <img src="./images/image-product-4-thumbnail.jpg" alt="" class="img-thumbnails" data-index="3">
-          </div>
-          
+            <img src="./images/image-product-4-thumbnail.jpg" alt="" class="img-thumbnails" data-index="3">    
         </div>
       </article>
+      <!-- MOBILE IMAGES -->
       <article class="image-section flex">
           <div class="image-close-menu">
             <div class="bar"></div>
@@ -108,18 +103,22 @@
           </div>
         </div>
       </article>
-      <article class="content-section">
-        <p class="clr-orange">
-          Sneaker Company
-        </p>
-        <h1 class="content-title">
-          Fall Limited Edition Sneakers
-        </h1>
-        <p class="content-info">
-          These low-profile sneakers are your perfect casual wear companion. Featuring a 
-          durable rubber outer sole, they’ll withstand everything the weather can offer.
-        </p>
-        <div class="flex">
+      <article class="content-section flex flex-col">
+        <div>
+          <p class="clr-orange">
+            Sneaker Company
+          </p>
+          <h1 class="content-title">
+            Fall Limited Edition Sneakers
+          </h1>
+          <p class="content-info">
+            These low-profile sneakers are your perfect casual wear companion. Featuring a 
+            durable rubber outer sole, they’ll withstand everything the weather can offer.
+          </p>
+          
+        </div>
+        <div>
+          <div class="flex ">
           <p class="sneaker-price flex">
             <span class="price">
               $125.00
@@ -131,8 +130,8 @@
           <p class="price-off">
             $250.00
           </p>
-        </div>
-        <div class="add-to-cart-box flex flex-col">
+          </div>
+          <div class="add-to-cart-box flex flex-col">
           <p class="piece-to-purchase flex">
             <button class="btn decrement-btn clr-orange">
               -
@@ -147,7 +146,8 @@
           <button class="btn btn-add-to-cart">
             Add to cart
           </button>
-        </div>    
+         </div>    
+      </div>
       </article>
     </section>    
   <div class="overlay"></div>

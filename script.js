@@ -58,32 +58,21 @@ const decrementBtn = document.querySelector(".decrement-btn");
 const incrementBtn = document.querySelector(".increment-btn");
 const pieceValue = document.querySelector(".piece-value");
 
-let currPieces = parseInt(pieceValue.innerHTML);
+let quantity = parseInt(pieceValue.innerHTML);
 
 decrementBtn.addEventListener("click", () => {
-  if (currPieces <= 0) return;
-  currPieces--;
-  pieceValue.textContent = currPieces;
+  if (quantity <= 0) return;
+  quantity--;
+  pieceValue.textContent = quantity;
 });
 incrementBtn.addEventListener("click", () => {
-  currPieces++;
-  pieceValue.textContent = currPieces;
+  quantity++;
+  pieceValue.textContent = quantity;
 });
 
 // CART BOX
 const cartBox = document.querySelector(".cart-box");
 const mainContainer = document.querySelector(".main-container");
-const html = `<div class = 'cart-container'>
-        <h3 class = 'cart-title'>
-        Cart
-        </h3>
-        <div class = 'basket-box'>
-        <p class = 'basket-empty'> Your cart is empty.
-        </p>
-        </div>
-      </div>`;
-
-mainContainer.insertAdjacentHTML("beforebegin", html);
 
 const cartContainer = document.querySelector(".cart-container");
 cartBox.addEventListener("click", () => {
@@ -99,7 +88,7 @@ const basketBox = document.querySelector(".basket-box");
 const addPurchase = (purchase) => {
   basketBox.innerHTML = "";
   purchase.forEach((item, i) => {
-    if (currPieces >= 1) {
+    if (quantity >= 1) {
       const slideIndex = i % (maxSlide + 1); // Calculate the slide index using modulo operator
       if (slideIndex <= maxSlide) {
         document.querySelector(".basket-empty")?.remove();
@@ -133,8 +122,8 @@ const addPurchase = (purchase) => {
 const cartCount = document.querySelector(".cart-count");
 let total = parseInt(cartCount.textContent);
 btnCart.addEventListener("click", () => {
-  if (!currPieces) return;
-  purchaseval.push(currPieces);
+  if (!quantity) return;
+  purchaseval.push(quantity);
   addPurchase(purchaseval);
   const totalCount = purchaseval.reduce((acc, curr) => acc + curr);
   total = parseInt(totalCount);
