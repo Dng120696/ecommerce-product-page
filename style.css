@@ -574,7 +574,6 @@ nav > .flex {
     top: 15rem;
   }
   .cart-container {
-    left:90%;
+    left:calc(85% + 2rem);
   }
-
 }
