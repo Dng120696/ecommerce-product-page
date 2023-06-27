@@ -49,8 +49,9 @@ body {
   color: var(--Orange);
 }
 h1 {
-  font-size: clamp(2.8rem, 3.2vw, 4.8rem);
+  font-size: clamp(2.8rem, 3.2vw, 4.6rem);
   font-weight: 700;
+  color: var(--Dark-grayish-blue);
 }
 p {
   font-size: 1.6rem;
@@ -58,7 +59,7 @@ p {
 }
 h1,
 p {
-  margin-bottom: 3rem;
+  margin-bottom:3rem;
 }
 .close-menu,
 .open-menu,
@@ -82,7 +83,7 @@ header {
   place-items: center;
 }
 .nav {
-  height: clamp(8rem, 11vw, 10rem);
+  height: clamp(9rem, 10vw, 11rem);
   width: min(92%, 120rem);
   margin-inline: auto;
 }
@@ -90,10 +91,10 @@ header {
 .nav,
 nav > .flex {
   justify-content: space-between;
-  gap: clamp(1.5rem, 4vw, 5.5rem);
+  gap: clamp(1.5rem, 3vw, 4rem);
 }
 .nav-pic img {
-  width: clamp(3rem, 3.5vw, 4rem);
+  width: clamp(3rem, 3.4vw, 3.5rem);
   border: 2px solid transparent;
   border-radius: 50%;
 }
@@ -415,7 +416,7 @@ nav > .flex {
     transition: none;
   }
   .menu-links a {
-    color: var(--Dark-grayish-blue);
+    color: var(--Grayish-blue);
     position: relative;
   }
   .image-section {
@@ -459,7 +460,7 @@ nav > .flex {
     transition: width 600ms;
   }
   .main-container {
-    padding: 6rem 0;
+    padding:4rem 0;
     gap: clamp(6rem, 7vw, 8rem);
     flex-direction: column; 
   }
@@ -472,7 +473,7 @@ nav > .flex {
   }
   .image-products {
     width:100%;
-    height: 55rem;
+    height: 50rem;
     margin-inline: auto;
     position: relative;
     overflow: hidden;
@@ -494,7 +495,7 @@ nav > .flex {
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    gap: 1rem;
+    gap: clamp(1rem,1.5vw,2rem);
   }
   .img-thumbnails {
     width: clamp(17rem,22vw,21rem);
@@ -554,7 +555,18 @@ nav > .flex {
     flex-direction: row;
   }
   .content-section{
+    gap: 0;
     flex-direction: column;
+  }
+  .content-section div:last-child div:first-child{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sneaker-price{
+    margin-bottom: 1rem;
+  }
+  .image-products{
+    height: 45rem;
   }
   .add-to-cart-box{
     flex-direction: row;
