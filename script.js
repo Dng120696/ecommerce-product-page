@@ -48,7 +48,6 @@ const nextSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
-  
 };
 
 const previousSlide = () => {
@@ -56,7 +55,6 @@ const previousSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
-  
 };
 
 nextBtn.addEventListener("click", nextSlide);
@@ -183,8 +181,6 @@ const thumbnails = (el) => {
     .classList.add("img-thumbnails--active");
 };
 
-
-
 imageClose.addEventListener("click", () => {
   overlay.classList.remove("show-overlay");
   imageSection.classList.remove("active");
@@ -200,7 +196,6 @@ imageProducts.addEventListener("click", function (e) {
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
     product(currentIndexproduct);
-
   }
 });
 
@@ -215,6 +210,5 @@ imageThumbnails.addEventListener("click", function (e) {
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
     product(currentIndexproduct);
-
   }
 });
