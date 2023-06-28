@@ -48,7 +48,7 @@ const nextSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
-  item(currSlide);
+  
 };
 
 const previousSlide = () => {
@@ -56,7 +56,7 @@ const previousSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
-  item(currSlide);
+  
 };
 
 nextBtn.addEventListener("click", nextSlide);
@@ -183,10 +183,7 @@ const thumbnails = (el) => {
     .classList.add("img-thumbnails--active");
 };
 
-const item = (curr) => {
-  const itemImage = basketBox.querySelector(".img-item");
-  itemImage.src = `./images/image-product-${curr + 1}.jpg`;
-};
+
 
 imageClose.addEventListener("click", () => {
   overlay.classList.remove("show-overlay");
@@ -203,7 +200,7 @@ imageProducts.addEventListener("click", function (e) {
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
     product(currentIndexproduct);
-    item(currentIndexproduct);
+
   }
 });
 
@@ -218,6 +215,6 @@ imageThumbnails.addEventListener("click", function (e) {
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
     product(currentIndexproduct);
-    item(currentIndexproduct);
+
   }
 });

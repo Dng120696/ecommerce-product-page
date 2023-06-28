@@ -59,7 +59,7 @@ p {
 }
 h1,
 p {
-  margin-bottom:3rem;
+  margin-bottom: 3rem;
 }
 .close-menu,
 .open-menu,
@@ -72,7 +72,7 @@ p {
 .desktop-img-sec {
   display: none;
 }
-img{
+img {
   object-fit: cover;
 }
 /* HEADER SECTION */
@@ -98,7 +98,7 @@ nav > .flex {
   border: 2px solid transparent;
   border-radius: 50%;
 }
-.nav-pic img:hover{
+.nav-pic img:hover {
   border: 2px solid var(--Orange);
   transition: all 600ms;
 }
@@ -236,7 +236,7 @@ nav > .flex {
   font-weight: 700;
   letter-spacing: 1px;
 }
-.content-section div:last-child{
+.content-section div:last-child {
   width: 100%;
 }
 .content-info {
@@ -272,13 +272,15 @@ nav > .flex {
   background-color: var(--Light-grayish-blue);
   width: 100%;
   padding: 1rem 2rem;
+  border-radius: 5px;
 }
 .piece-to-purchase button {
   background-color: transparent;
   font-size: 2.6rem;
 }
-.piece-to-purchase button:hover{
-  color: hsl(26, 100%,75%);
+
+.piece-to-purchase button:hover {
+  color: hsl(26, 100%, 75%);
   transition: all 600ms;
 }
 .btn-add-to-cart {
@@ -289,11 +291,10 @@ nav > .flex {
   padding: 1.5rem 0;
   margin-bottom: 2rem;
   font-size: 1.8rem;
-  box-shadow: 0 15px 25px hsl(26, 100%,85%);
-
+  box-shadow: 0 15px 25px hsl(26, 100%, 85%);
 }
-.btn-add-to-cart:hover{
-  background-color: hsl(26, 100%,70%);
+.btn-add-to-cart:hover {
+  background-color: hsl(26, 100%, 70%);
   transition: all 600ms;
 }
 .btn-add-to-cart::before {
@@ -322,7 +323,7 @@ nav > .flex {
   transform: translate(-50%, -50%);
   background-color: rgba(255, 255, 255, 0.95);
   z-index: 12;
-  width: clamp(30rem, 95%, 45rem);
+  width: clamp(30rem, 100%, 45rem);
   border-radius: 1rem;
   box-shadow: 0 1rem 15px rgba(0, 0, 0, 0.3);
   opacity: 0;
@@ -330,7 +331,7 @@ nav > .flex {
   overflow: hidden;
 }
 .show-cart {
-  top: 25rem;
+  top: 18rem;
   opacity: 1;
   transition: top 600ms, opacity 600ms;
 }
@@ -404,9 +405,6 @@ nav > .flex {
   .nav {
     border-bottom: 2px solid var(--Light-grayish-blue);
   }
-  .image--slide {
-    transform: scale(1);
-  }
   .menu-links {
     position: relative;
     width: 100%;
@@ -417,7 +415,6 @@ nav > .flex {
   }
   .menu-links a {
     color: var(--Grayish-blue);
-    position: relative;
   }
   .image-section {
     position: absolute;
@@ -437,6 +434,7 @@ nav > .flex {
   }
   .image--slide {
     border-radius: 2rem;
+    transform: scale(1);
   }
   .previous--btn {
     left: -2.5rem;
@@ -460,9 +458,9 @@ nav > .flex {
     transition: width 600ms;
   }
   .main-container {
-    padding:4rem 0;
+    padding: 4rem 0;
     gap: clamp(6rem, 7vw, 8rem);
-    flex-direction: column; 
+    flex-direction: column;
   }
   .desktop-img-sec {
     display: flex;
@@ -472,7 +470,7 @@ nav > .flex {
     height: 100%;
   }
   .image-products {
-    width:100%;
+    width: 100%;
     height: 50rem;
     margin-inline: auto;
     position: relative;
@@ -486,8 +484,6 @@ nav > .flex {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .image-products img {
     border-radius: 1rem;
     height: 100%;
   }
@@ -495,10 +491,10 @@ nav > .flex {
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    gap: clamp(1rem,1.5vw,2rem);
+    gap: clamp(1rem, 1.5vw, 2rem);
   }
   .img-thumbnails {
-    width: clamp(17rem,22vw,21rem);
+    width: clamp(17rem, 22vw, 21rem);
     height: 100%;
     border-radius: 1rem;
   }
@@ -514,24 +510,26 @@ nav > .flex {
     cursor: pointer;
   }
   .content-section {
-    gap: 3rem;
-  
-  }
-  .content-section div{
-    flex: 1;
-  }
-  .content-section div:last-child{
-    align-self: flex-end;
-  }
-  .add-to-cart-box{
     flex-direction: column;
   }
-  .btn-add-to-cart{
+  .add-to-cart-box {
+    flex-direction: row;
+    gap: 3rem;
+  }
+  .piece-to-purchase {
+    margin-bottom: 0;
+    flex: 1;
+  }
+  .btn-add-to-cart {
+    flex: 2;
     width: 100%;
     margin: 0;
   }
-  .items-purchase{
+  .items-purchase {
     flex-direction: column;
+  }
+  .show-cart {
+    top: 25rem;
   }
   .overlay {
     position: fixed;
@@ -547,45 +545,35 @@ nav > .flex {
     display: block;
   }
 }
-@media (min-width:1024px) {
-  .main-container{
+@media (min-width: 1024px) {
+  .main-container {
     padding: 8rem 0;
   }
-  .main-container,.image-thumbnails{
+  .main-container,
+  .image-thumbnails {
     flex-direction: row;
   }
-  .content-section{
+  .content-section {
     gap: 0;
     flex-direction: column;
   }
-  .content-section div:last-child div:first-child{
+  .content-section div:last-child div:first-child {
     flex-direction: column;
     align-items: flex-start;
   }
-  .sneaker-price{
+  .sneaker-price {
     margin-bottom: 1rem;
   }
-  .image-products{
+  .image-products {
     height: 45rem;
   }
-  .add-to-cart-box{
-    flex-direction: row;
-    gap: 3rem;
-  }
-  .piece-to-purchase{
-    margin-bottom: 0;
-    flex: 1;
-  }
-  .btn-add-to-cart{
-    flex: 2.5;
-  }
-  .img-thumbnails{
+  .img-thumbnails {
     width: 10rem;
   }
-  .show-cart{
+  .show-cart {
     top: 15rem;
   }
   .cart-container {
-    left:calc(85% + 2rem);
+    left: calc(85% + 2rem);
   }
 }
