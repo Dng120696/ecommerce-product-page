@@ -51,7 +51,7 @@ body {
 h1 {
   font-size: clamp(2.8rem, 3.2vw, 4.6rem);
   font-weight: 700;
-  color: var(--Black);
+  color: var(--Very-dark-blue);
 }
 p {
   font-size: 1.6rem;
@@ -73,6 +73,7 @@ p {
   display: none;
 }
 img {
+  max-width: 100%;
   object-fit: cover;
 }
 /* HEADER SECTION */
@@ -84,7 +85,7 @@ header {
 }
 .nav {
   height: clamp(9rem, 10vw, 11rem);
-  width: min(92%, 120rem);
+  width: min(92%, 110rem);
   margin-inline: auto;
 }
 
@@ -94,7 +95,7 @@ nav > .flex {
   gap: clamp(1.5rem, 3vw, 4rem);
 }
 .nav-pic img {
-  width: clamp(3rem, 3.4vw, 3.5rem);
+  width: clamp(3rem, 5vw, 5.5rem);
   border: 2px solid transparent;
   border-radius: 50%;
 }
@@ -547,7 +548,7 @@ nav > .flex {
 }
 @media (min-width: 1024px) {
   .main-container {
-    padding: 8rem 0;
+    padding: clamp(8rem, 8.5vw, 9rem) 0;
   }
   .main-container,
   .image-thumbnails {
@@ -568,7 +569,7 @@ nav > .flex {
     height: 45rem;
   }
   .img-thumbnails {
-    width: 10rem;
+    width: 9.5rem;
   }
   .show-cart {
     top: 15rem;
