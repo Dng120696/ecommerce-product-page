@@ -48,6 +48,7 @@ const nextSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
+  thumbnailsSlide(currSlide);
 };
 
 const previousSlide = () => {
@@ -55,6 +56,7 @@ const previousSlide = () => {
   goToSlide(currSlide);
   product(currSlide);
   thumbnails(currSlide);
+  thumbnailsSlide(currSlide);
 };
 
 nextBtn.addEventListener("click", nextSlide);
@@ -164,6 +166,8 @@ const imageClose = document.querySelector(".image-close-menu");
 // THUMBNAILS
 const imageThumbnails = document.querySelector(".image-thumbnails");
 const imgThumbnails = document.querySelectorAll(".img-thumbnails");
+const imageThumbnailsSlide = document.querySelector(".image-thumbnails-slide");
+const imgThumbnailsSlide = document.querySelectorAll(".img-thumbnails-slide");
 
 const product = (el) => {
   imgProducts.forEach((img, i) => {
@@ -179,6 +183,14 @@ const thumbnails = (el) => {
   document
     .querySelector(`.img-thumbnails[data-index='${el}']`)
     .classList.add("img-thumbnails--active");
+};
+const thumbnailsSlide = (el) => {
+  imgThumbnailsSlide.forEach((thumb) =>
+    thumb.classList.remove("img-thumbnails-slide--active")
+  );
+  document
+    .querySelector(`.img-thumbnails-slide[data-index='${el}']`)
+    .classList.add("img-thumbnails-slide--active");
 };
 
 imageClose.addEventListener("click", () => {
@@ -209,6 +221,20 @@ imageThumbnails.addEventListener("click", function (e) {
     el.classList.add("img-thumbnails--active");
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
+    product(currentIndexproduct);
+  }
+});
+imageThumbnailsSlide.addEventListener("click", function (e) {
+  const el = e.target;
+  if (el.classList.contains("img-thumbnails-slide")) {
+    console.log('click');
+    currentIndexproduct = +el.dataset.index;
+    imgThumbnailsSlide.forEach((thumb) =>
+      thumb.classList.remove("img-thumbnails-slide--active")
+    );
+    el.classList.add("img-thumbnails-slide--active");
+    goToSlide(currentIndexproduct);
+    thumbnailsSlide(currentIndexproduct);
     product(currentIndexproduct);
   }
 });

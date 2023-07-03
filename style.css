@@ -76,6 +76,9 @@ img {
   max-width: 100%;
   object-fit: cover;
 }
+.hidden{
+  display: none;
+}
 /* HEADER SECTION */
 header {
   background-color: var(--White);
@@ -395,6 +398,7 @@ nav > .flex {
   font-size: 1.6rem;
 }
 @media (min-width: 768px) {
+ 
   .flex-col {
     flex-direction: row;
   }
@@ -419,15 +423,17 @@ nav > .flex {
   }
   .image-section {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: clamp(40rem, 90%, 50rem);
     display: none;
     z-index: 3;
+    gap: 2rem;
+    flex-direction: column;
   }
-  .active {
-    display: block;
+  .active,.hidden {
+    display: flex;
   }
   .image-close-menu {
     display: block;
@@ -438,9 +444,11 @@ nav > .flex {
     transform: scale(1);
   }
   .previous--btn {
+    top: 40%;
     left: -2.5rem;
   }
   .next--btn {
+    top: 40%;
     right: -2.5rem;
   }
   .menu-links a::after {
@@ -492,10 +500,19 @@ nav > .flex {
     width: 100%;
     height: 100%;
     justify-content: space-between;
-    gap: clamp(1rem, 1.5vw, 2rem);
   }
   .img-thumbnails {
     width: clamp(17rem, 22vw, 21rem);
+    height: 100%;
+    border-radius: 1rem;
+  }
+  .image-thumbnails-slide {
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+  }
+  .img-thumbnails-slide{
+    width: clamp(11rem,12vw,12rem);
     height: 100%;
     border-radius: 1rem;
   }
@@ -505,6 +522,17 @@ nav > .flex {
     height: 100%;
   }
   .image-thumbnails img:hover {
+    border: 3px solid var(--Orange);
+    opacity: 0.5;
+    height: 100%;
+    cursor: pointer;
+  }
+  .img-thumbnails-slide--active {
+    border: 3px solid var(--Orange);
+    opacity: 0.5;
+    height: 100%;
+  }
+  .image-thumbnails-slide img:hover {
     border: 3px solid var(--Orange);
     opacity: 0.5;
     height: 100%;
