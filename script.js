@@ -221,6 +221,7 @@ imageThumbnails.addEventListener("click", function (e) {
     el.classList.add("img-thumbnails--active");
     goToSlide(currentIndexproduct);
     thumbnails(currentIndexproduct);
+    thumbnailsSlide(currentIndexproduct);
     product(currentIndexproduct);
   }
 });
@@ -235,6 +236,7 @@ imageThumbnailsSlide.addEventListener("click", function (e) {
     el.classList.add("img-thumbnails-slide--active");
     goToSlide(currentIndexproduct);
     thumbnailsSlide(currentIndexproduct);
+    thumbnails(currentIndexproduct);
     product(currentIndexproduct);
   }
 });
